@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/metallb/metallb.git
     path: config/native
-    targetRevision: 0.14.7
+    targetRevision: v0.14.7
   destination:
     server: {{ .Values.argo.destination.server }}
     namespace: metallb-{{ .Values.argo.destination.namespaceSuffix }}
