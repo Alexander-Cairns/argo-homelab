@@ -12,5 +12,5 @@ spec:
     targetRevision: 0.14.7
   destination:
     server: {{ .Values.argo.destination.server }}
-    namespace: metallb-{{ .Values.argco.destination.namespaceSuffix }}
+    namespace: metallb-{{ .Values.argo.destination.namespaceSuffix }}
 
