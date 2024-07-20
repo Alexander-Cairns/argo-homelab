@@ -6,7 +6,6 @@ metadata:
 spec:
   project: {{ .Values.argo.project }}
   source:
-    chart: traefik
     repoURL: https://github.com/metallb/metallb.git
     path: config/native
     targetRevision: 0.14.7
