@@ -14,7 +14,6 @@ spec:
   destinations:
   - namespace: '*-system'
     server: https://kubernetes.default.svc
-        - CreateNamespace=true
 
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -45,3 +44,4 @@ spec:
         namespace: '{{.path.basename}}-system'
       syncPolicy:
         syncOptions:
+        - CreateNamespace=true
