@@ -14,6 +14,12 @@ spec:
   destinations:
   - namespace: '*-system'
     server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
 
 ---
 apiVersion: argoproj.io/v1alpha1
