@@ -1,6 +1,0 @@
-argo:
-  project: default
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespaceSuffix: system
-

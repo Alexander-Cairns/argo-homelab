@@ -1,17 +1,47 @@
 ---
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: AppProject
 metadata:
-  name: infra
+  name: cluster-addons
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Cluster addons
+  sourceRepos:
+  - '*'
+  # Only permit applications to deploy to the guestbook namespace in the same cluster
+  destinations:
+  - namespace: '*-system'
+    server: https://kubernetes.default.svc
+        - CreateNamespace=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-addons
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/Alexander-Cairns/argo-homelab.git
-    path: infra
-    targetRevision: HEAD
-    helm:
-      releaseName: infra
-  destination:
-    server: "https://kubernetes.default.svc"
-    namespace: argocd
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: https://github.com/Alexander-Cairns/argo-homelab.git
+      revision: HEAD
+      directories:
+      - path: infra/*
+  template:
+    metadata:
+      name: '{{.path.basename}}'
+    spec:
+      project: "cluster-addons"
+      source:
+        repoURL: https://github.com/Alexander-Cairns/argo-homelab.git
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{.path.basename}}-system'
+      syncPolicy:
+        syncOptions:
