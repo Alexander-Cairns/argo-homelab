@@ -1,0 +1,6 @@
+acmeEmail: acme@doge.irish
+acmeSolvers:
+- http01:
+    ingress:
+      ingressClassName: traefik
+acmeServer: https://acme-v02.api.letsencrypt.org/directory
