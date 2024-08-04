@@ -6,3 +6,7 @@ traefik:
     kubernetesIngress:
       publishedService:
         enabled: true
+  ports:
+    web:
+      middleware:
+        - traefik-system-http-redirect@kubernetescrd
