@@ -9,4 +9,4 @@ traefik:
   ports:
     web:
       middlewares:
-        - traefik-system-http-redirect@kubernetescrd
+        - traefik-system-https-redirect@kubernetescrd
