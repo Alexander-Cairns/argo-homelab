@@ -1,2 +1,8 @@
 nameOverride: ""
 fullnameOverride: ""
+
+traefik:
+  providers:
+  kubernetesIngress:
+    publishedService:
+      enabled: true
