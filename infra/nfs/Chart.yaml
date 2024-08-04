@@ -1,0 +1,10 @@
+apiVersion: v2
+name: nfs-csi-addon
+description: A Helm chart to install and configure the nfs csi driver
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+dependencies:
+- name: csi-driver-nfs
+  version: "v4.8.0"
+  repository: "https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts"

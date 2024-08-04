@@ -1,0 +1,5 @@
+server: 192.168.2.3
+share: /mnt/pokeball/stage_nfs
+
+csi-driver-nfs:
+  kubeletDir: /var/snap/microk8s/common/var/lib/kubelet # microk8s specific
