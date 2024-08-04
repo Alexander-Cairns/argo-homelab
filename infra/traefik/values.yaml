@@ -3,6 +3,6 @@ fullnameOverride: ""
 
 traefik:
   providers:
-  kubernetesIngress:
-    publishedService:
-      enabled: true
+    kubernetesIngress:
+      publishedService:
+        enabled: true
