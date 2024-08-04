@@ -1,8 +1,14 @@
 acmeEmail: acme@doge.irish
 acmeSolvers:
-- http01:
-    ingress:
-      ingressClassName: traefik
+- dns01:
+    route53:
+      region: us-east-1
+      accessKeyIDSecretRef:
+        name: route53-credentials
+        key: access-key-id
+      secretAccessKeySecretRef:
+        name: route53-credentials
+        key: secret-access-key
 acmeServer: https://acme-v02.api.letsencrypt.org/directory
 
 cert-manager:
