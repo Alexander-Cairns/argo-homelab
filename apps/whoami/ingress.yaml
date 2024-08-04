@@ -19,3 +19,4 @@ spec:
   tls:
   - hosts:
     - whoami.spaceduck.cloud
+    secretName: whoami-ssl
