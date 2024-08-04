@@ -8,5 +8,5 @@ traefik:
         enabled: true
   ports:
     web:
-      middleware:
+      middlewares:
         - traefik-system-http-redirect@kubernetescrd
